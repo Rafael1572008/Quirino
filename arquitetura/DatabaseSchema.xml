@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net">
+  <diagram name="Database Schema">
+    <mxGraphModel dx="1300" dy="810" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <!-- Specialization Table -->
+        <mxCell id="Specialization" value="Specialization" style="swimlane;horizontal=0;" vertex="1" parent="1">
+          <mxGeometry x="20" y="20" width="160" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="SpecializationDetails" value="idSpec: INT&#10;name: VARCHAR(20)&#10;description: LONGTEXT&#10;weapon: VARCHAR(40)&#10;magic_school: VARCHAR(40)" vertex="1" parent="Specialization" style="text;html=1;align=left;">
+          <mxGeometry x="10" y="30" width="140" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- Person Table -->
+        <mxCell id="Person" value="Person" style="swimlane;horizontal=0;" vertex="1" parent="1">
+          <mxGeometry x="200" y="20" width="200" height="240" as="geometry"/>
+        </mxCell>
+        <mxCell id="PersonDetails" value="idPerson: INT&#10;idClass: INT&#10;idSpec: INT&#10;name: VARCHAR(45)&#10;surname: VARCHAR(45)&#10;birth_date: VARCHAR(10)&#10;street: VARCHAR(45)&#10;number: VARCHAR(45)&#10;neighborhood: VARCHAR(45)&#10;city: VARCHAR(45)&#10;state: VARCHAR(45)&#10;country: VARCHAR(45)&#10;nationality: VARCHAR(45)" vertex="1" parent="Person" style="text;html=1;align=left;">
+          <mxGeometry x="10" y="30" width="180" height="200" as="geometry"/>
+        </mxCell>
+
+        <!-- User Table -->
+        <mxCell id="User" value="User" style="swimlane;horizontal=0;" vertex="1" parent="1">
+          <mxGeometry x="440" y="20" width="180" height="160" as="geometry"/>
+        </mxCell>
+        <mxCell id="UserDetails" value="idUser: INT&#10;idPerson: INT&#10;idRole: INT&#10;username: VARCHAR(16)&#10;password: VARCHAR(32)&#10;timestamp: TIMESTAMP" vertex="1" parent="User" style="text;html=1;align=left;">
+          <mxGeometry x="10" y="30" width="160" height="120" as="geometry"/>
+        </mxCell>
+
+        <!-- Class Table -->
+        <mxCell id="Class" value="Class" style="swimlane;horizontal=0;" vertex="1" parent="1">
+          <mxGeometry x="20" y="200" width="160" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="ClassDetails" value="idClass: INT&#10;name: VARCHAR(45)&#10;description: LONGTEXT&#10;abilities: VARCHAR(45)" vertex="1" parent="Class" style="text;html=1;align=left;">
+          <mxGeometry x="10" y="30" width="140" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- Role Table -->
+        <mxCell id="Role" value="Role" style="swimlane;horizontal=0;" vertex="1" parent="1">
+          <mxGeometry x="440" y="200" width="160" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="RoleDetails" value="idRole: INT&#10;name: VARCHAR(20)&#10;edit: TINYINT&#10;mod: TINYINT&#10;delete: TINYINT&#10;sell: TINYINT" vertex="1" parent="Role" style="text;html=1;align=left;">
+          <mxGeometry x="10" y="30" width="140" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- Relationships -->
+        <mxCell id="PersonToClass" edge="1" source="Person" target="Class">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="PersonToSpecialization" edge="1" source="Person" target="Specialization">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="UserToPerson" edge="1" source="User" target="Person">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="UserToRole" edge="1" source="User" target="Role">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
